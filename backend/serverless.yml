@@ -27,23 +27,6 @@ provider:
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
     ATTACHMENT_S3_BUCKET: udagram-sls-images-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
-  
-custom:
-  documentation:
-    api:
-      info:
-        version: v1.0.0
-        title: Udagram API
-        description: serveless app for image sharing
-
-    models:
-      - name: CreateTodoRequest
-        contentType: "application/json"
-        schema: ${file(models/create-todo-model.json)}
-
-      - name: UpdateTodoRequest
-        contentType: "application/json"
-        schema: ${file(models/update-todo-model.json)}
 
   logs:
     # Enable API Gateway logs
@@ -249,3 +232,20 @@ resources:
           Ref: ApiGatewayRestApi
         ValidateRequestBody: true
         ValidateRequestParameters: false
+  
+custom:
+  documentation:
+    api:
+      info:
+        version: v1.0.0
+        title: Udagram API
+        description: serveless app for image sharing
+
+    models:
+      - name: CreateTodoRequest
+        contentType: "application/json"
+        schema: ${file(models/create-todo-model.json)}
+
+      - name: UpdateTodoRequest
+        contentType: "application/json"
+        schema: ${file(models/update-todo-model.json)}
